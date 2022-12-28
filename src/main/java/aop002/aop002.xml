@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+
+<!-- 	스프링프레임워크에게 AOP 프록시를 사용하라고 알려주는 지시자 -->
+<!-- 	(프록시 패턴을 통해 횡단관심사를 핵심관심사에 주입하는 것임) -->
+	<aop:aspectj-autoproxy />
+	
+<!-- 	빈이 설정되는 이유는 객체의 생성과 의존성 주입을 스프링프레임워크에 위임하기 위해서이다. -->
+<!-- 	스프링프레임워크는 객체 생성 뿐 아니라 객체의 생명주기 전반에 걸쳐 빈의 생성, 소멸까지 관리한다.  -->
+	
+<!-- 세개의 빈에 대한 정보를 등록 -->
+
+	<!-- Aspect - 2 Spring AOP marker at this line -->
+	<bean id="myAspect" class="aop002.MyAspect" /> 
+	
+	<!-- AOP 적용 대상 - advised by aop002.MyAspect.before(JoinPoint)-->
+	<bean id="boy" class="aop002.Boy" />
+	<bean id="girl" class="aop002.Girl" />
+
+</beans>

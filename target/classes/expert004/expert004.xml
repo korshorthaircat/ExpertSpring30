@@ -8,7 +8,7 @@
 	<context:annotation-config />
 
 	<bean id="tire" class="expert004.KoreaTire"></bean>
-	<bean id="americatTire" class="expert004.AmericaTire"></bean>
+	<bean id="americaTire" class="expert004.AmericaTire"></bean>
 
 	<bean id="car" class="expert004.Car">
 <!-- 		<property name="tire" ref="koreaTire"></property> -->
