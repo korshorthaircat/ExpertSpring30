@@ -128,3 +128,18 @@
   * Advisor는 스프링AOP에서만 사용하는 용어
   * 스프링 버전이 올라감에 따라 이지는 사용하지 말라고 권고하는 기능
     * 스프링의 발전과정에 따라 다수의 Advice와 다수의 Pointcut을 다양하게 조합해 사용하는 방법, 즉 Aspect가 나왔으므로 Advisor를 사용할 필요가 없어짐
+
+## PSA (Portable Service Abstraction, 일관성 있는 서비스 추상화)
+* 서비스 추상화
+  * 어댑터 패턴을 적용해 같은 일을 하는 다수의 기술을 공통의 인터페이스로 제어할 수 있게 함
+  * 예)
+    * JDBC
+      * JDBC라는 표준 스펙이 있기에 오라클을 사용하든, MySQL을 사용하든 Connection, Statement, ResultSet을 이용해 공통된 방식으로 코드 작성 가능
+      * DB 종류에 상관없이 같은 방식으로 제어할 수 있는 이유
+        * JDBC가 어댑터패턴을 활용하고 있기 때문
+  * 스프링 프레임워크에서 제공하는 다양한 어댑터
+    * 여러 OXM(Object XML Mapping) 기술(예: Castor, JAXB, XMLBeans, ...)에 대하여 일관된 방식으로 코드를 작성할 수 있게 지원
+      * 하나의 OXM에서 다른 OXM으로 변경할 때 큰 변화없이 세부 기술 교체하여 사용 가능
+    * ORM에 대한 PSA
+    * 캐시에 대한 PSA
+    * 트랜잭션에 대한 PSA
